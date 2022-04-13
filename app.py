@@ -1,5 +1,5 @@
 import cv2
-
+import os
 
 face_Cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
@@ -16,7 +16,7 @@ def detect(greyscale, colorframe):
 
         roi_grey = greyscale[y:y+h, x:x+w]
         roi_color = colorframe[y:y+h, x:x+w]
-        eye = eye_Cascade.detectMultiScale(roi_grey, 1.7, 5)
+        eye = eye_Cascade.detectMultiScale(roi_grey, 1.7, 3)
         for (a, b, wi, hi) in eye:
             cv2.rectangle(roi_color, (a, b), (a+wi, b+hi), (0, 255, 0), 2)
 
@@ -27,17 +27,14 @@ def detect(greyscale, colorframe):
     return colorframe
 
 
-frame = cv2.VideoCapture("data/images/img.jpg")
-while 1:
-
-    stat, cframe = frame.read()
-    gframe = cv2.cvtColor(cframe, cv2.COLOR_BGR2GRAY)
-    given = detect(gframe, cframe)
-    cv2.imshow('cam', given)
-    if cv2.waitKey(1) & 0xff == ord('q'):
-
-        break
+path = os.path.join(os.getcwd(), 'facedetection-opencv',
+                    'data', 'images', 'download.jpeg')
+print(path)
+cframe = cv2.imread(path)
 
 
-frame.release()
-cv2.destroyAllWindows()
+gframe = cv2.cvtColor(cframe, cv2.COLOR_BGR2GRAY)
+
+given = detect(gframe, cframe)
+cv2.imshow('cam', given)
+cv2.waitKey()
