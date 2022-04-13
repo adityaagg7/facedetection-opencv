@@ -27,7 +27,7 @@ def detect(greyscale, colorframe):
     return colorframe
 
 
-key = input("Enter a for detection in image and B for detection using webcam:\n")
+key = input("Enter a for detection in image and b for detection using webcam:\n")
 
 if key == 'a':
     path = os.path.join(os.getcwd(), 'facedetection-opencv',
@@ -40,5 +40,19 @@ if key == 'a':
     given = detect(gframe, cframe)
     cv2.imshow('cam', given)
     cv2.waitKey()
+elif key == 'b':
+    frame = cv2.VideoCapture(0)
+    while 1:
+
+        stat, cframe = frame.read()
+        gframe = cv2.cvtColor(cframe, cv2.COLOR_BGR2GRAY)
+        given = detect(gframe, cframe)
+        cv2.imshow('cam', given)
+        if cv2.waitKey(1) & 0xff == ord('q'):
+
+            break
+
+    frame.release()
+    cv2.destroyAllWindows()
 else:
     print("Wrong input")
