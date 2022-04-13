@@ -20,7 +20,7 @@ def detect(greyscale, colorframe):
         for (a, b, wi, hi) in eye:
             cv2.rectangle(roi_color, (a, b), (a+wi, b+hi), (0, 255, 0), 2)
 
-        smile = smile_Cascade.detectMultiScale(roi_grey, 1.7, 5)
+        smile = smile_Cascade.detectMultiScale(roi_grey, 1.7, 22)
         for (a, b, wi, hi) in smile:
             cv2.rectangle(roi_color, (a, b), (a+wi, b+hi), (0, 255, 0), 2)
 
