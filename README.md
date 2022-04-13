@@ -5,7 +5,7 @@ Face Detection using Viola-Jones algorithm  to identify Haar-like features in a 
 Here, the following features are being detected :
 - Face
 - Eyes
-
+- Smile
 
 ## Packages Used
 
