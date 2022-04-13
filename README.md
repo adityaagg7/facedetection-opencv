@@ -1,8 +1,8 @@
 # facedetection-opencv
-## - About
+## About
 Face Detection using Viola-Jones algorithm  to identify Haar-like features in a frame, taken from the webcam of the device.
 
-## - Packages Used
+## Packages Used
 
 Python wrapper for openCV:
 
