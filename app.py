@@ -27,7 +27,7 @@ def detect(greyscale, colorframe):
     return colorframe
 
 
-frame = cv2.VideoCapture(0)
+frame = cv2.VideoCapture("data/images/img.jpg")
 while 1:
 
     stat, cframe = frame.read()
