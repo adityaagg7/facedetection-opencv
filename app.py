@@ -32,7 +32,7 @@ key = input("Enter a for detection in image and B for detection using webcam:\n"
 if key == 'a':
     path = os.path.join(os.getcwd(), 'facedetection-opencv',
                         'data', 'images', 'download.jpeg')
-    print(path)
+    print("Checking for:  ", path)
     cframe = cv2.imread(path)
 
     gframe = cv2.cvtColor(cframe, cv2.COLOR_BGR2GRAY)
@@ -41,4 +41,4 @@ if key == 'a':
     cv2.imshow('cam', given)
     cv2.waitKey()
 else:
-    print("Worng input")
+    print("Wrong input")
