@@ -1,6 +1,11 @@
 # facedetection-opencv
 ## About
+
 Face Detection using Viola-Jones algorithm  to identify Haar-like features in a frame, taken from the webcam of the device.
+Here, the following features are being detected :
+- Face
+- Eyes
+
 
 ## Packages Used
 
