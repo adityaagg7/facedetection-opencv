@@ -14,7 +14,7 @@ def detect(greyscale, colorframe):
 
         roi_grey = greyscale[y:y+h, x:x+w]
         roi_color = colorframe[y:y+h, x:x+w]
-        eye = eye_Cascade.detectMultiScale(roi_grey, 1.7, 7)
+        eye = eye_Cascade.detectMultiScale(roi_grey, 1.7, 5)
         for (a, b, wi, hi) in eye:
             cv2.rectangle(roi_color, (a, b), (a+wi, b+hi), (0, 255, 0), 2)
 
